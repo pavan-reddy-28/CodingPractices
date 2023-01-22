@@ -1,10 +1,10 @@
 package binarySearch;
 
 public class FirstBadVersion {
-	public int firstBadVersion(int n) {
-		  int index =0;
-		  int start = 1;
-		  int end = n;
+	public long firstBadVersion(int n) {
+		  long index =0;
+		  long start = 1;
+		  long end = n;
 		int minTrue=0;
 		int minWrong=-1;
 		System.out.println("start | end | index | minTrue | minWrong ");
@@ -13,15 +13,16 @@ public class FirstBadVersion {
 		      index = (start + end)/2;
 		      System.out.print("  "+start+"   |  "+end+"  |  "+index+"    |");
 		      //left
-		      if(isBadVersion(index)){
-		          minTrue=index;
+		      if(isBadVersion((int)index)){
+		          minTrue=(int)index;
 		          end=index-1;
 		      }else{
 		          if(minWrong == index) break;
 		          start = index+1;
-		          minWrong = index;
+		          minWrong = (int)index;
 		      }
 		      System.out.println("  "+minTrue+"      |  "+minWrong+"  ");
+
 		  }
 
 
@@ -30,13 +31,13 @@ public class FirstBadVersion {
 		}
 	public boolean isBadVersion(int index) {
 		boolean x = false;
-		int check =4;
+		long check =1702766719;
 		return index>=check?true:false;
 	}
 	
 	public static void main(String args[]) {
 		FirstBadVersion obj = new FirstBadVersion();
-		int v = obj.firstBadVersion(5);
+		long v = obj.firstBadVersion(2126753390);
 		System.out.println("\n \n value ::::: "+v);
 	}
 	
